@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discordia", "Discordia\Discordia.csproj", "{A3D432F1-1D54-4343-AE27-CC79B2A6394B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecialCoins", "SpecialCoins\SpecialCoins.csproj", "{00FC623B-71B6-45FE-9D65-298B48C4F8A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3D432F1-1D54-4343-AE27-CC79B2A6394B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D432F1-1D54-4343-AE27-CC79B2A6394B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D432F1-1D54-4343-AE27-CC79B2A6394B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D432F1-1D54-4343-AE27-CC79B2A6394B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00FC623B-71B6-45FE-9D65-298B48C4F8A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00FC623B-71B6-45FE-9D65-298B48C4F8A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00FC623B-71B6-45FE-9D65-298B48C4F8A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00FC623B-71B6-45FE-9D65-298B48C4F8A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
