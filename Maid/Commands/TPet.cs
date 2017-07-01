@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Discord.WebSocket;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Discord.WebSocket;
 
-namespace Discordia.src.triggers
+namespace Maid.Commands
 {
-    class PetTrigger : Trigger
+    class TPet : ITrigger
     {
         public string Activator { get; set; } = "pet";
         public string HelpLine { get; set; } = "**!pet** - mention a dude and I'll pet him";

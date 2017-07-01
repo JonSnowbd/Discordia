@@ -1,19 +1,18 @@
-﻿using System;
-using System.Threading.Tasks;
-using Discord;
-using SpecialCoins;
+﻿using Discord.WebSocket;
+using Maid.Commands.SpecialCoins;
+using System;
 using System.Linq;
-using Discord.WebSocket;
+using System.Threading.Tasks;
 
-namespace Discordia.src.triggers
+namespace Maid.Commands
 {
-    public sealed class SpecialCoinTrigger : Trigger
+    public sealed class TCoin : ITrigger
     {
 
         SpecialCoinMachine coinState;
         private Random rng = new Random();
 
-        public SpecialCoinTrigger() {
+        public TCoin() {
             coinState = new SpecialCoinMachine();
             coinState.LoadOrCreate();
         }

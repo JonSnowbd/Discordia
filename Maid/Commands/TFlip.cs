@@ -1,11 +1,10 @@
-﻿using Discord;
-using Discord.WebSocket;
+﻿using Discord.WebSocket;
 using System;
 using System.Threading.Tasks;
 
-namespace Discordia.src.triggers
+namespace Maid.Commands
 {
-    class FlipTrigger : Trigger
+    class TFlip : ITrigger
     {
         public string Activator { get; set; } = "flip";
 

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Discord.WebSocket;
+using System;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Discord.WebSocket;
 
-namespace Discordia.src.triggers
+namespace Maid.Commands
 {
-    class EchoTrigger : Trigger
+    class TEcho : ITrigger
     {
         public string Activator { get; set; } = "echo";
         public string HelpLine { get; set; } = "**!echo** - Makes the bot talk into the mentioned channel. `!echo #general Hey guys.`";

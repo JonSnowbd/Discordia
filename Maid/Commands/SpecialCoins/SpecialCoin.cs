@@ -1,4 +1,4 @@
-﻿namespace SpecialCoins
+﻿namespace Maid.Commands.SpecialCoins
 {
     public class SCoin
     {

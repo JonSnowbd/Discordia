@@ -1,19 +1,15 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SpecialCoins
+namespace Maid.Commands.SpecialCoins
 {
     public sealed class SpecialCoinMachine
     {
         public List<SpecialUser> Users = new List<SpecialUser>();
 
         [JsonIgnore]
-        private string JSONPath = System.Environment.CurrentDirectory+"/SpecialCoins.json";
+        private string JSONPath = Directory.GetCurrentDirectory()+"/SpecialCoins.json";
 
         public void LoadOrCreate()
         {

@@ -1,12 +1,10 @@
-﻿using Discord;
-using Discord.WebSocket;
-using System;
+﻿using Discord.WebSocket;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Discordia.src.triggers
+namespace Maid.Commands
 {
-    class WhisperTrigger : Trigger
+    class TWhisper : ITrigger
     {
         public string Activator { get; set; } = "salt";
 
@@ -34,7 +32,7 @@ namespace Discordia.src.triggers
                 {
                     try
                     {
-                        await Saltee.CreateDMChannelAsync().Result.SendMessageAsync(Salter.Username + " has SALTED you HARD!");
+                        await Saltee.GetOrCreateDMChannelAsync().Result.SendMessageAsync(Salter.Username + " has SALTED you HARD!");
                         await Message.Channel.SendMessageAsync("Success!");
                     }
                     catch

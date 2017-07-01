@@ -1,28 +1,30 @@
 ﻿using Discord;
 using Discord.WebSocket;
-using Discordia.src;
-using Discordia.src.triggers;
+using Maid.Commands;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Discordia
+namespace Maid
 {
-    public sealed class DiscordiaBot
+    public sealed class MaidCore
     {
-        public DiscordSocketClient Client;
-        public static string Prefix = "!";
-        public List<Trigger> Triggers = new List<Trigger>();
+        private DiscordSocketClient Client;
+        private List<ITrigger> Triggers = new List<ITrigger>();
 
-        public DiscordiaBot()
+        public string Prefix = "!";
+        public bool Running = true;
+        
+        public MaidCore()
         {
-            Triggers.Add(new RollTrigger());
-            Triggers.Add(new FlipTrigger());
-            Triggers.Add(new WhisperTrigger());
-            Triggers.Add(new SpecialCoinTrigger());
-            Triggers.Add(new JobTrigger());
-            Triggers.Add(new EchoTrigger());
-            Triggers.Add(new PetTrigger());
+            // Hook up all default triggers.
+            Triggers.Add(new TRoll());
+            Triggers.Add(new TFlip());
+            Triggers.Add(new TWhisper());
+            Triggers.Add(new TCoin());
+            Triggers.Add(new TJob());
+            Triggers.Add(new TEcho());
+            Triggers.Add(new TPet());
         }
 
         public async Task Start()
@@ -46,7 +48,7 @@ namespace Discordia
                 if (Word.ToLower() == "help")
                 {
                     string HelpLine = "";
-                    foreach(Trigger Trig in Triggers)
+                    foreach (ITrigger Trig in Triggers)
                     {
                         HelpLine += Trig.HelpLine;
                         HelpLine += "\n";
@@ -56,7 +58,7 @@ namespace Discordia
                 }
 
                 // Work through each trigger, if the activator is the same as the given Word, run its OnTrigger.
-                foreach (Trigger Trig in Triggers)
+                foreach (ITrigger Trig in Triggers)
                 {
                     if (Trig.Activator.ToLower() == Word.ToLower())
                     {
@@ -71,7 +73,7 @@ namespace Discordia
                             Triggers.Remove(Trig);
                             return;
                         }
-                        
+
                     }
                 }
             };

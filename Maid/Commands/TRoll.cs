@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Discord.WebSocket;
+using System;
 using System.Threading.Tasks;
-using Discord;
-using Discord.WebSocket;
 
-namespace Discordia.src.triggers
+namespace Maid.Commands
 {
-    class RollTrigger : Trigger
+    class TRoll : ITrigger
     {
 
         public string Activator { get; set; } = "roll";

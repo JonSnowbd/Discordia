@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Discord.WebSocket;
 using System.Threading.Tasks;
-using Discord;
-using Discord.WebSocket;
 
-namespace Discordia.src
+namespace Maid
 {
-    public interface Trigger
+    public interface ITrigger
     {
         string Activator { get; set; }
         string HelpLine { get; set; }

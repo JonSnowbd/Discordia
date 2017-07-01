@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Discord.WebSocket;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Discord.WebSocket;
 
-namespace Discordia.src.triggers
+namespace Maid.Commands
 {
-    class JobTrigger : Trigger
+    class TJob : ITrigger
     {
         public string Activator { get; set; } = "choosemyjob";
         public string HelpLine { get; set; } = "**choosemyjob** - Randomly pick a job, or a job from a list of roles. Example: `!choosemyjob`, `!choosemyjob healer caster`, `!choosemyjob melee`";
