@@ -1,4 +1,5 @@
 ﻿using Discord.WebSocket;
+using Maid.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,15 @@ namespace Maid.Commands
     class TJob : ITrigger
     {
         public string Activator { get; set; } = "choosemyjob";
-        public string HelpLine { get; set; } = "**choosemyjob** - Randomly pick a job, or a job from a list of roles. Example: `!choosemyjob`, `!choosemyjob healer caster`, `!choosemyjob melee`";
-        private Random rng = new Random();
+        public string HelpLine { get; set; } = "Get a random job to help choose what you want to play.";
+        public MaidCore Bot { get; set; }
+        public string[] Examples { get; set; } = new string[]
+        {
+            "!choosemyjob",
+            "!choosemyjob crafters gatherers",
+            "!choosemyjob ranged",
+            "!choosemyjob tanks"
+        };
 
         // Classes
         private readonly string[] Casters = new string[]{
@@ -60,11 +68,6 @@ namespace Maid.Commands
             "ALC",
             "CUL"
         };
-
-        public string ChooseFrom(List<string> list)
-        {
-            return list[rng.Next(0, list.Count)];
-        }
 
         public void Destroy(SocketMessage Message)
         {
@@ -148,7 +151,7 @@ namespace Maid.Commands
             }
             try
             {
-                string job = ChooseFrom(classes);
+                string job = Rng.Choice(classes);
                 await Message.Channel.SendMessageAsync("You are to be a: **" + job + "**");
             }
             catch

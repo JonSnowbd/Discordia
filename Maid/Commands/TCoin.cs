@@ -30,8 +30,14 @@ namespace Maid.Commands
         }
 
         public string Activator { get; set; } = "special";
-
-        public string HelpLine { get; set; } = "**!special** - Let someone know they are loved and special with `!special give @mention with an optional note here` or see the top memesters with `!special list`";
+        public string HelpLine { get; set; } = "A special command to give people coins for good or bad reasons.";
+        public MaidCore Bot { get; set; }
+        public string[] Examples { get; set; } = new string[]
+        {
+            "!special list",
+            "!special give @Xyrlynn",
+            "!special give @Stay And this is an extra note to be added to the coin."
+        };
 
         public void Destroy(SocketMessage Message)
         {

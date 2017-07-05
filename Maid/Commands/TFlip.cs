@@ -7,8 +7,12 @@ namespace Maid.Commands
     class TFlip : ITrigger
     {
         public string Activator { get; set; } = "flip";
-
-        public string HelpLine { get; set; } = "**!flip** - Flip a coin.";
+        public string HelpLine { get; set; } = "Flip a coin. It's that simple.";
+        public MaidCore Bot { get; set; }
+        public string[] Examples { get; set; } = new string[]
+        {
+            "!flip"
+        };
 
         public void Destroy(SocketMessage Message)
         {

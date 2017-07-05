@@ -7,7 +7,12 @@ namespace Maid.Commands
     class TPet : ITrigger
     {
         public string Activator { get; set; } = "pet";
-        public string HelpLine { get; set; } = "**!pet** - mention a dude and I'll pet him";
+        public string HelpLine { get; set; } = "Pet anyone but master.";
+        public MaidCore Bot { get; set; }
+        public string[] Examples { get; set; } = new string[]
+        {
+            "!pet @Xyrlyn"
+        };
 
         public void Destroy(SocketMessage Message)
         {

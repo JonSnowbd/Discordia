@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maid", "Maid\Maid.csproj", "{E0C7226D-6940-4FA8-9844-BD19E73E2322}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maid", "Maid\Maid.csproj", "{E0C7226D-6940-4FA8-9844-BD19E73E2322}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaidConsole", "MaidConsole\MaidConsole.csproj", "{404B05C9-A8C1-42D4-92BC-0966159B81EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaidConsole", "MaidConsole\MaidConsole.csproj", "{404B05C9-A8C1-42D4-92BC-0966159B81EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

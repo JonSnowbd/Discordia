@@ -7,8 +7,14 @@ namespace Maid.Commands
 {
     class TEcho : ITrigger
     {
+        public MaidCore Bot { get; set; }
+
         public string Activator { get; set; } = "echo";
-        public string HelpLine { get; set; } = "**!echo** - Makes the bot talk into the mentioned channel. `!echo #general Hey guys.`";
+        public string HelpLine { get; set; } = "Makes the bot mimic your message in the mentioned channel.";
+        public string[] Examples { get; set; } = new string[]
+        {
+            "!echo #general Hey whats up guys."
+        };
 
         public void Destroy(SocketMessage Message)
         {

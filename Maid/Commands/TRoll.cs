@@ -6,10 +6,14 @@ namespace Maid.Commands
 {
     class TRoll : ITrigger
     {
-
         public string Activator { get; set; } = "roll";
-
-        public string HelpLine { get; set; } = "**!roll** - Roll any sided die. `!roll` to default to 6, `!roll 10` to roll for example a 10 sided die.";
+        public string HelpLine { get; set; } = "Roll any sided die.";
+        public MaidCore Bot { get; set; }
+        public string[] Examples { get; set; } = new string[]
+        {
+            "!roll",
+            "!roll 40"
+        };
 
         public string[] UnluckyPhrases =
         {

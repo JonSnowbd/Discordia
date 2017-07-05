@@ -9,7 +9,7 @@ namespace Maid.Commands.SpecialCoins
         public List<SpecialUser> Users = new List<SpecialUser>();
 
         [JsonIgnore]
-        private string JSONPath = Directory.GetCurrentDirectory()+"/SpecialCoins.json";
+        private string JSONPath = Path.Combine(Directory.GetCurrentDirectory(), "SpecialCoins.json");
 
         public void LoadOrCreate()
         {
