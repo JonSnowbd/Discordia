@@ -9,8 +9,8 @@ namespace Maid.Commands
 {
     class TJob : ITrigger
     {
-        public string Activator { get; set; } = "choosemyjob";
-        public string HelpLine { get; set; } = "Get a random job to help choose what you want to play.";
+        public TriggerMethod Activator { get; set; } = TriggerUtil.ByName("choosemyjob");
+        public string HelpLine { get; set; } = "**choosemyjob** - Get a random job to help choose what you want to play.";
         public MaidCore Bot { get; set; }
         public string[] Examples { get; set; } = new string[]
         {

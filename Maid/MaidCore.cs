@@ -12,7 +12,7 @@ namespace Maid
         private DiscordSocketClient Client;
         private List<ITrigger> Triggers = new List<ITrigger>();
 
-        public string Prefix = "!";
+        public static string Prefix = "!";
         public bool Running = true;
         
         public MaidCore()
@@ -25,6 +25,7 @@ namespace Maid
             AddCommand(new TEcho());
             AddCommand(new TPet());
             AddCommand(new T8Ball());
+            AddCommand(new TMath());
         }
 
         public void AddCommand(ITrigger command)
@@ -43,8 +44,6 @@ namespace Maid
             {
                 // If it is our own message, cancel.
                 if (Message.Author.IsBot) { return; }
-                // If it doesnt start with our prefix, cancel.
-                if (!Message.Content.StartsWith(Prefix)) { return; }
                 // Getting the first word, without the Prefix.
                 string Word = Message.Content.Split(' ')[0].Substring(Prefix.Length);
 
@@ -54,14 +53,14 @@ namespace Maid
                     string HelpLine = "";
                     foreach (ITrigger Trig in Triggers)
                     {
-                        HelpLine += "**" + Trig.Activator.ToLower()[0].ToString().ToUpper() + Trig.Activator.Substring(1) + "**\n";
-                        HelpLine += "*" + Trig.HelpLine + "* For example: ```";
+                        HelpLine += "" + Trig.HelpLine + " For example: ```";
                         foreach(string example in Trig.Examples)
                         {
                             HelpLine += example + "\n";
                         }
                         HelpLine += "```";
 
+                        // Avoid message capping.
                         if(HelpLine.Length > 1250)
                         {
                             await Message.Channel.SendMessageAsync(HelpLine);
@@ -72,20 +71,21 @@ namespace Maid
                     return;
                 }
 
-                // Work through each trigger, if the activator is the same as the given Word, run its OnTrigger.
+                // Work through each trigger, if the trigger method returns true, activate the trigger and return.
                 foreach (ITrigger Trig in Triggers)
                 {
-                    if (Trig.Activator.ToLower() == Word.ToLower())
+                    if (Trig.Activator(Message.Content))
                     {
                         try
                         {
                             await Trig.OnTrigger(Message);
                             return;
                         }
-                        catch
+                        catch(Exception e)
                         {
                             Trig.Destroy(Message);
                             Triggers.Remove(Trig);
+                            Console.WriteLine(e.Message);
                             return;
                         }
 

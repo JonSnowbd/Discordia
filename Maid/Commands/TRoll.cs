@@ -1,4 +1,5 @@
 ﻿using Discord.WebSocket;
+using Maid.Utility;
 using System;
 using System.Threading.Tasks;
 
@@ -6,8 +7,8 @@ namespace Maid.Commands
 {
     class TRoll : ITrigger
     {
-        public string Activator { get; set; } = "roll";
-        public string HelpLine { get; set; } = "Roll any sided die.";
+        public TriggerMethod Activator { get; set; } = TriggerUtil.ByName("8ball");
+        public string HelpLine { get; set; } = "**roll** - Roll any sided die.";
         public MaidCore Bot { get; set; }
         public string[] Examples { get; set; } = new string[]
         {

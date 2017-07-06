@@ -1,4 +1,5 @@
 ﻿using Discord.WebSocket;
+using Maid.Utility;
 using System;
 using System.Threading.Tasks;
 
@@ -6,8 +7,8 @@ namespace Maid.Commands
 {
     class TFlip : ITrigger
     {
-        public string Activator { get; set; } = "flip";
-        public string HelpLine { get; set; } = "Flip a coin. It's that simple.";
+        public TriggerMethod Activator { get; set; } = TriggerUtil.ByName("flip");
+        public string HelpLine { get; set; } = "**flip** - Flip a coin. It's that simple.";
         public MaidCore Bot { get; set; }
         public string[] Examples { get; set; } = new string[]
         {

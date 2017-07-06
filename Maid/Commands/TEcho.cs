@@ -1,4 +1,5 @@
 ﻿using Discord.WebSocket;
+using Maid.Utility;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,8 +10,8 @@ namespace Maid.Commands
     {
         public MaidCore Bot { get; set; }
 
-        public string Activator { get; set; } = "echo";
-        public string HelpLine { get; set; } = "Makes the bot mimic your message in the mentioned channel.";
+        public TriggerMethod Activator { get; set; } = TriggerUtil.ByName("echo");
+        public string HelpLine { get; set; } = "**echo** - Makes the bot mimic your message in the mentioned channel.";
         public string[] Examples { get; set; } = new string[]
         {
             "!echo #general Hey whats up guys."

@@ -10,8 +10,8 @@ namespace Maid.Commands
     class T8Ball : ITrigger
     {
         public MaidCore Bot { get; set; }
-        public string Activator { get; set; } = "8ball";
-        public string HelpLine { get; set; } = "Shake up an 8ball and get your answers.";
+        public TriggerMethod Activator { get; set; } = TriggerUtil.ByName("8ball");
+        public string HelpLine { get; set; } = "**8ball** - Shake up an 8ball and get your answers.";
         public string[] Examples { get; set; } = new string[]
         {
             "!8ball will sharu ever get to tank for the FC"

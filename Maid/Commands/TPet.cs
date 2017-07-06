@@ -1,4 +1,5 @@
 ﻿using Discord.WebSocket;
+using Maid.Utility;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -6,8 +7,8 @@ namespace Maid.Commands
 {
     class TPet : ITrigger
     {
-        public string Activator { get; set; } = "pet";
-        public string HelpLine { get; set; } = "Pet anyone but master.";
+        public TriggerMethod Activator { get; set; } = TriggerUtil.ByName("pet");
+        public string HelpLine { get; set; } = "**pet** - Pet anyone but master.";
         public MaidCore Bot { get; set; }
         public string[] Examples { get; set; } = new string[]
         {

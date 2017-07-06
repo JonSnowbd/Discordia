@@ -1,5 +1,6 @@
 ﻿using Discord.WebSocket;
 using Maid.Commands.SpecialCoins;
+using Maid.Utility;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,8 +30,8 @@ namespace Maid.Commands
             return Compliments[(int)rng.Next(Compliments.Count())];
         }
 
-        public string Activator { get; set; } = "special";
-        public string HelpLine { get; set; } = "A special command to give people coins for good or bad reasons.";
+        public TriggerMethod Activator { get; set; } = TriggerUtil.ByName("special");
+        public string HelpLine { get; set; } = "**special** - A special command to give people coins for good or bad reasons.";
         public MaidCore Bot { get; set; }
         public string[] Examples { get; set; } = new string[]
         {
